@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonkeyTax — Session Receipts</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1><img class="mtx-logo" src="./icons/monkey-logo.png" width="28" height="28" alt="" /> MonkeyTax</h1>
+      <p class="tag">Daily summary &bull; session receipts &bull; 100% local</p>
+      <div class="mtx-tagline">Stop using supercomputers like a monkey on a typewriter.</div>
+    </header>
+
+    <div class="ptx-manual-bar">
+      <button id="ptx-force-scan" class="ptx-scan-btn">&#128260; Scan Active Chat Now</button>
+      <div id="ptx-scan-feedback" class="ptx-scan-feedback"></div>
+    </div>
+
+    <section>
+      <h2>Today</h2>
+      <div class="grid">
+        <div class="stat"><div class="value" id="today-prompts">0</div><div class="label">Prompts taxed</div></div>
+        <div class="stat"><div class="value" id="today-water">0 ml</div><div class="label">Cooling water</div></div>
+        <div class="stat"><div class="value" id="today-energy">0 Wh</div><div class="label">Energy drawn</div></div>
+        <div class="stat"><div class="value roast" id="today-polite">0</div><div class="label">Filler tax</div></div>
+      </div>
+      <div class="scale-check" id="scale-check"></div>
+    </section>
+
+    <section>
+      <h2>All time</h2>
+      <div class="grid">
+        <div class="stat"><div class="value" id="all-prompts">0</div><div class="label">Prompts</div></div>
+        <div class="stat"><div class="value" id="all-water">0 ml</div><div class="label">Cooling water</div></div>
+        <div class="stat"><div class="value" id="all-energy">0 Wh</div><div class="label">Energy drawn</div></div>
+        <div class="stat"><div class="value" id="all-searches">0&times;</div><div class="label">Google-search equiv.</div></div>
+      </div>
+    </section>
+
+    <div id="ptx-annual-pace" class="ptx-pace-card" style="display: none;">
+      <div class="ptx-pace-header">&#128197; Your 365-Day Run-Rate</div>
+      <div class="ptx-pace-body" id="ptx-pace-text"></div>
+      <div class="ptx-pace-footer">Intentional prompts keep this number lean.</div>
+    </div>
+
+    <footer class="receipt">
+      <p id="receipt-line">No receipts yet. Type something intentional or let your keyboard monkey run wild.</p>
+      <div class="mtx-attribution">Icons by <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener noreferrer">Twemoji</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC-BY 4.0</a>)</div>
+    </footer>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>

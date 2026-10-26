@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonkeyTax Fixture — Claude DOM</title>
+    <style>
+      html.dark { background: #262624; }
+      html.light { background: #fbfaf7; }
+      html.dark body { background: #262624; color: #f0f0ee; }
+      html.light body { background: #fbfaf7; color: #1f1e1c; }
+      body { font: 15px/1.6 sans-serif; margin: 24px auto; max-width: 720px; }
+      .user-row { margin: 18px 0 8px; }
+      .assistant-row { margin: 8px 0 18px; }
+      .cursor-blinking { display: inline-block; width: 7px; height: 15px; background: #d97757; vertical-align: -2px; }
+      .thinking-block { color: #8f8f8a; font-style: italic; border-left: 2px solid #d97757; padding-left: 8px; margin-bottom: 6px; }
+    </style>
+  </head>
+  <body>
+    <div id="app"><h3>PTX-FIXTURE-READY</h3></div>
+    <script>
+      function addMessageActions(row) {
+        const actions = document.createElement('div');
+        actions.setAttribute('data-testid', 'message-actions');
+        actions.textContent = 'Copy';
+        row.appendChild(actions);
+      }
+
+      /** Deterministic stand-in for claude.ai's conversation DOM. */
+      window.__ptxFixture = (() => {
+        const app = () => document.getElementById('app');
+
+        function submitUserTurn(text) {
+          const user = document.createElement('div');
+          user.className = 'user-row';
+          user.setAttribute('data-testid', 'user-message');
+          user.textContent = text;
+          app().appendChild(user);
+        }
+
+        function completeTurn(fullText, { reasoning = false } = {}) {
+          const row = document.createElement('div');
+          row.className = 'assistant-row';
+          row.setAttribute('data-testid', 'assistant-message');
+          row.setAttribute('data-is-streaming', 'true');
+          if (reasoning) {
+            const thinking = document.createElement('div');
+            thinking.className = 'thinking-block';
+            thinking.setAttribute('data-testid', 'thinking-bubble');
+            thinking.textContent = 'Thinking\u2026';
+            row.appendChild(thinking);
+          }
+          const bubble = document.createElement('div');
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor-blinking';
+          bubble.appendChild(cursor);
+          row.appendChild(bubble);
+          addMessageActions(row);
+          app().appendChild(row);
+
+          const words = fullText.split(' ');
+          let i = 0;
+          const interval = setInterval(() => {
+            i += 1;
+            bubble.textContent = words.slice(0, i).join(' ');
+            bubble.appendChild(cursor);
+            if (i >= words.length) {
+              clearInterval(interval);
+              cursor.remove();
+              row.setAttribute('data-is-streaming', 'false');
+            }
+          }, 30);
+        }
+
+        /** Swaps the html class like the real in-app theme toggle does. */
+        function setTheme(mode) {
+          document.documentElement.classList.remove('dark', 'light');
+          document.documentElement.classList.add(mode);
+        }
+
+        return { submitUserTurn, completeTurn, setTheme };
+      })();
+
+      (function seedHistory() {
+        const app = document.getElementById('app');
+        const turns = [
+          ['Explain the difference between TCP and UDP', 'TCP is connection-oriented with ordering and retransmission; UDP is connectionless and best-effort.'],
+          ['Summarize the CAP theorem', 'A distributed system can guarantee only two of consistency, availability, and partition tolerance at once.'],
+        ];
+        for (const [q, a] of turns) {
+          const user = document.createElement('div');
+          user.className = 'user-row';
+          user.setAttribute('data-testid', 'user-message');
+          user.textContent = q;
+          const row = document.createElement('div');
+          row.className = 'assistant-row';
+          row.setAttribute('data-testid', 'assistant-message');
+          row.setAttribute('data-is-streaming', 'false');
+          row.textContent = a;
+          addMessageActions(row);
+          app.append(user, row);
+        }
+      })();
+    </script>
+  </body>
+</html>

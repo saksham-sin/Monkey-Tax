@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonkeyTax Fixture — Gemini DOM</title>
+    <style>
+      html.dark { background: #131316; }
+      html.light { background: #f7f7f4; }
+      body { font: 14px/1.5 sans-serif; background: #fff; margin: 24px; }
+      .conversation-container { border-bottom: 1px solid #eee; padding: 12px; }
+      .blue-iteration-cursor { display: inline-block; width: 8px; height: 14px; background: #1a73e8; }
+    </style>
+  </head>
+  <body>
+    <div id="app"><h3>PTX-FIXTURE-READY</h3></div>
+    <script>
+      /**
+       * Deterministic stand-in for gemini.google.com's conversation DOM.
+       * The Playwright harness drives these functions via page.evaluate
+       * while the real content script (injected by Chrome via manifest
+       * matches at this origin) does the badge logic untouched.
+       */
+      window.__ptxFixture = (() => {
+        let turnIndex = 0;
+
+        /** Simulates typing + pressing send: renders only the user query. */
+        function submitUserTurn(text) {
+          const conversation = document.querySelector('route-thread') || (() => {
+            const thread = document.createElement('route-thread');
+            document.getElementById('app').appendChild(thread);
+            return thread;
+          })();
+          const turn = document.createElement('conversation-container');
+          turn.classList.add('conversation-container');
+          const query = document.createElement('user-query');
+          query.className = 'user-query-container';
+          // Live Gemini shape: accordion label block ("You said X"), the
+          // prompt repeated in an expanded block, plus trailing zero-width
+          // char and leaked "copy edit" action labels.
+          query.innerHTML =
+            '<div class="query-label">You said ' + text + '</div>' +
+            '<div class="expanded-query">' + text + '</div>' +
+            '\u200B copy edit';
+          turn.appendChild(query);
+          conversation.appendChild(turn);
+          turnIndex += 1;
+          return turnIndex;
+        }
+
+        /** Streams a fake assistant response then settles, ending "generation". */
+        function completeTurn(fullText, { reasoning = false } = {}) {
+          const conversation = document.querySelector('route-thread');
+          const turn = conversation.lastElementChild;
+
+          if (reasoning) {
+            const thinking = document.createElement('thinking-chip');
+            thinking.setAttribute('data-test-id', 'model-thoughts');
+            turn.appendChild(thinking);
+          }
+
+          const stopButton = document.createElement('stop-generating-button');
+          document.body.appendChild(stopButton);
+
+          const response = document.createElement('model-response');
+          const content = document.createElement('message-content');
+          content.classList.add('model-response-text');
+          const cursor = document.createElement('span');
+          cursor.className = 'blue-iteration-cursor';
+          turn.appendChild(response);
+          response.appendChild(content);
+          content.appendChild(cursor);
+
+          const words = fullText.split(' ');
+          let i = 0;
+          const interval = setInterval(() => {
+            i += 1;
+            content.textContent = words.slice(0, i).join(' ');
+            content.appendChild(cursor);
+            if (i >= words.length) {
+              clearInterval(interval);
+              cursor.remove();
+              stopButton.remove();
+            }
+          }, 30);
+
+          return turnIndex;
+        }
+
+        /** Swaps the html class like the real in-app theme toggle does. */
+        function setTheme(mode) {
+          document.documentElement.classList.remove('dark', 'light');
+          document.documentElement.classList.add(mode);
+        }
+
+        return { submitUserTurn, completeTurn, setTheme };
+      })();
+
+      /**
+       * Two fully-rendered prior turns appended during parse — present
+       * before the content script attaches, so they are treated as
+       * history (never badged) and counted by the thread rollup scan.
+       */
+      (function seedHistory() {
+        const thread = document.createElement('route-thread');
+        document.getElementById('app').appendChild(thread);
+        const turns = [
+          ['Explain the difference between TCP and UDP', 'TCP is connection-oriented with ordering and retransmission; UDP is connectionless and best-effort.'],
+          ['Summarize the CAP theorem', 'A distributed system can guarantee only two of consistency, availability, and partition tolerance at once.'],
+        ];
+        for (const [q, a] of turns) {
+          const turn = document.createElement('conversation-container');
+          turn.classList.add('conversation-container');
+          const query = document.createElement('user-query');
+          query.className = 'user-query-container';
+          query.textContent = q;
+          const response = document.createElement('model-response');
+          const content = document.createElement('message-content');
+          content.textContent = a;
+          response.appendChild(content);
+          turn.append(query, response);
+          thread.appendChild(turn);
+        }
+      })();
+    </script>
+  </body>
+</html>

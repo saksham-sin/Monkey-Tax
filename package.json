@@ -1,0 +1,23 @@
+{
+  "name": "monkey-tax",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Stop using supercomputers like a monkey on a typewriter.",
+  "scripts": {
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "export:showcase": "node scripts/export-showcase-pdf.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.278",
+    "marked": "^15.0.7",
+    "playwright": "^1.64.1",
+    "sharp": "^0.35.5",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0"
+  }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonkeyTax Fixture — ChatGPT DOM</title>
+    <style>
+      html.dark { background: #101014; }
+      html.light { background: #f9f9f9; }
+      html.dark body { background: #212121; color: #ececec; }
+      html.light body { background: #f9f9f9; color: #171717; }
+      body { font: 15px/1.6 sans-serif; margin: 24px auto; max-width: 720px; }
+      [data-chatgpt-search-unit-key$=":user"] { margin: 18px 0 8px; }
+      [data-chatgpt-search-unit-key$=":assistant"] { margin: 8px 0 18px; }
+      .cursor-blinking { display: inline-block; width: 7px; height: 15px; background: #ececec; vertical-align: -2px; }
+      .thinking { color: #8e8e8e; font-style: italic; border-left: 2px solid #4cc38a; padding-left: 8px; margin-bottom: 6px; }
+    </style>
+  </head>
+  <body>
+    <div id="app"><h3>PTX-FIXTURE-READY</h3></div>
+    <script>
+      /** Deterministic stand-in for chatgpt.com's conversation DOM. */
+      window.__ptxFixture = (() => {
+        const app = () => document.getElementById('app');
+
+        function submitUserTurn(text) {
+          const user = document.createElement('div');
+          user.setAttribute('data-chatgpt-search-unit-key', `turn-${app().childElementCount}:0:user`);
+          user.textContent = text;
+          app().appendChild(user);
+        }
+
+        function completeTurn(fullText, { reasoning = false } = {}) {
+          const assistant = document.createElement('div');
+          assistant.setAttribute('data-chatgpt-search-unit-key', `turn-${app().childElementCount - 1}:1:assistant`);
+          assistant.classList.add('result-streaming');
+          if (reasoning) {
+            const thinking = document.createElement('div');
+            thinking.className = 'thinking';
+            thinking.setAttribute('data-testid', 'oai-extended-thinking');
+            thinking.textContent = 'Reasoning about the request\u2026';
+            assistant.appendChild(thinking);
+          }
+          const bubble = document.createElement('div');
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor-blinking';
+          bubble.appendChild(cursor);
+          assistant.appendChild(bubble);
+          app().appendChild(assistant);
+
+          const words = fullText.split(' ');
+          let i = 0;
+          const interval = setInterval(() => {
+            i += 1;
+            bubble.textContent = words.slice(0, i).join(' ');
+            bubble.appendChild(cursor);
+            if (i >= words.length) {
+              clearInterval(interval);
+              cursor.remove();
+              assistant.classList.remove('result-streaming');
+            }
+          }, 30);
+        }
+
+        /** Swaps the html class like the real in-app theme toggle does. */
+        function setTheme(mode) {
+          document.documentElement.classList.remove('dark', 'light');
+          document.documentElement.classList.add(mode);
+        }
+
+        return { submitUserTurn, completeTurn, setTheme };
+      })();
+
+      (function seedHistory() {
+        const app = document.getElementById('app');
+        const turns = [
+          ['Explain the difference between TCP and UDP', 'TCP is connection-oriented with ordering and retransmission; UDP is connectionless and best-effort.'],
+          ['Summarize the CAP theorem', 'A distributed system can guarantee only two of consistency, availability, and partition tolerance at once.'],
+        ];
+        for (const [q, a] of turns) {
+          const user = document.createElement('div');
+          user.setAttribute('data-chatgpt-search-unit-key', `turn-${app.childElementCount}:0:user`);
+          user.textContent = q;
+          const assistant = document.createElement('div');
+          assistant.setAttribute('data-chatgpt-search-unit-key', `turn-${app.childElementCount}:1:assistant`);
+          assistant.textContent = a;
+          app.append(user, assistant);
+        }
+      })();
+    </script>
+  </body>
+</html>

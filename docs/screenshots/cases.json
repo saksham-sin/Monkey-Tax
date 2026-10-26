@@ -1,0 +1,271 @@
+{
+  "cases": [
+    {
+      "name": "conversation-overview",
+      "caption": "One Gemini thread: pre-seeded history in the thread dock, all four intent tiers centered under their responses.",
+      "image": "screenshots/conversation-overview.png"
+    },
+    {
+      "name": "gemini-thread-dock",
+      "caption": "Thread dock pill on a pre-existing gemini conversation (2 seeded turns): 9.52 ml / 1.08 Wh.",
+      "image": "screenshots/gemini-thread-dock.png"
+    },
+    {
+      "name": "thread-drawer-dashboard",
+      "caption": "Expanded thread dock: 4-card dashboard (water bottle fill, lamp hours, search equivalence, Xbox Series S runtime) and the \"Scan Entire History\" auto-scroll scanner after a full sweep (2 turns).",
+      "image": "screenshots/thread-drawer-dashboard.png"
+    },
+    {
+      "name": "gemini-badge-informative",
+      "caption": "gemini: centered, collapsed INFORMATIVE pill (headline + human-relatable metric chip + chevron).",
+      "image": "screenshots/gemini-badge-informative.png"
+    },
+    {
+      "name": "gemini-drawer-expanded",
+      "caption": "gemini: accordion drawer expanded — Scope 1/Scope 2 cooling breakdown (incl. grid water), hardware reality check, citation link.",
+      "image": "screenshots/gemini-drawer-expanded.png"
+    },
+    {
+      "name": "chatgpt-thread-dock",
+      "caption": "Thread dock pill on a pre-existing chatgpt conversation (2 seeded turns): 9.52 ml / 1.08 Wh.",
+      "image": "screenshots/chatgpt-thread-dock.png"
+    },
+    {
+      "name": "chatgpt-badge-informative",
+      "caption": "chatgpt: centered, collapsed INFORMATIVE pill (headline + human-relatable metric chip + chevron).",
+      "image": "screenshots/chatgpt-badge-informative.png"
+    },
+    {
+      "name": "chatgpt-drawer-expanded",
+      "caption": "chatgpt: accordion drawer expanded — Scope 1/Scope 2 cooling breakdown (incl. grid water), hardware reality check, citation link.",
+      "image": "screenshots/chatgpt-drawer-expanded.png"
+    },
+    {
+      "name": "claude-thread-dock",
+      "caption": "Thread dock pill on a pre-existing claude conversation (2 seeded turns): 9.54 ml / 1.09 Wh.",
+      "image": "screenshots/claude-thread-dock.png"
+    },
+    {
+      "name": "claude-badge-informative",
+      "caption": "claude: centered, collapsed INFORMATIVE pill (headline + human-relatable metric chip + chevron).",
+      "image": "screenshots/claude-badge-informative.png"
+    },
+    {
+      "name": "claude-drawer-expanded",
+      "caption": "claude: accordion drawer expanded — Scope 1/Scope 2 cooling breakdown (incl. grid water), hardware reality check, citation link.",
+      "image": "screenshots/claude-drawer-expanded.png"
+    },
+    {
+      "name": "claude-composer-desktop",
+      "caption": "Claude desktop: drawer opens above the fixed composer without changing message height or scroll position.",
+      "image": "screenshots/claude-composer-desktop.png"
+    },
+    {
+      "name": "claude-composer-compact",
+      "caption": "Claude compact: drawer opens above the fixed composer without changing message height or scroll position.",
+      "image": "screenshots/claude-composer-compact.png"
+    },
+    {
+      "name": "claude-composer-mobile",
+      "caption": "Claude mobile: drawer opens above the fixed composer without changing message height or scroll position.",
+      "image": "screenshots/claude-composer-mobile.png"
+    },
+    {
+      "name": "badge-polite",
+      "caption": "Roast tier: politeness filler (Short answer supplied promptly by the cluster. reply keeps it short).",
+      "image": "screenshots/badge-polite.png"
+    },
+    {
+      "name": "badge-polite-drawer-fulltext",
+      "caption": "Roast drawer after click: the complete headline + subtext punchline, fully wrapped and readable (the collapsed pill may ellipsize on narrow screens).",
+      "image": "screenshots/badge-polite-drawer-fulltext.png"
+    },
+    {
+      "name": "badge-greeting",
+      "caption": "Roast tier: zero-question greeting opener; full punchline visible on the collapsed red pill.",
+      "image": "screenshots/badge-greeting.png"
+    },
+    {
+      "name": "badge-lazy-retry",
+      "caption": "Roast tier: zero-context vague command (\"fix it\") caught only after the technical guardrails pass.",
+      "image": "screenshots/badge-lazy-retry.png"
+    },
+    {
+      "name": "badge-simple-math",
+      "caption": "Roast tier: natural-language math (\"tell me how much is 7777+998\") classified SIMPLE_MATH; full punchline visible on the collapsed pill.",
+      "image": "screenshots/badge-simple-math.png"
+    },
+    {
+      "name": "badge-quick-search",
+      "caption": "Roast tier: ultra-short factual lookup.",
+      "image": "screenshots/badge-quick-search.png"
+    },
+    {
+      "name": "badge-informative-reasoning",
+      "caption": "Neutral telemetry with the 2.5x extended-thinking multiplier. Water split shown only in the drawer.",
+      "image": "screenshots/badge-informative-reasoning.png"
+    },
+    {
+      "name": "thread-dock-light",
+      "caption": "Thread dock in LIGHT mode: warm peach glass, terracotta accents, and espresso text applied on a live theme change.",
+      "image": "screenshots/thread-dock-light.png"
+    },
+    {
+      "name": "badge-informative-light",
+      "caption": "Collapsed INFORMATIVE pill on a light-theme host: terracotta and peach tokens with blue water telemetry applied without a page reload.",
+      "image": "screenshots/badge-informative-light.png"
+    },
+    {
+      "name": "drawer-light",
+      "caption": "Expanded drawer, light theme: warm cream surfaces, espresso text, terracotta energy meters, and blue water telemetry.",
+      "image": "screenshots/drawer-light.png"
+    },
+    {
+      "name": "badge-polite-light",
+      "caption": "Roast pill in LIGHT mode: high-contrast roast tokens (#FEF2F2 bg, #EF4444 border, #7F1D1D text) keep instant regret loud.",
+      "image": "screenshots/badge-polite-light.png"
+    },
+    {
+      "name": "citation-modal",
+      "caption": "Citation modal: Scope 1 on-site cooling / Scope 2 off-site thermoelectric grid water, citations (UC Riverside, Hugging Face, IEA), updated methodology with the 9x output-energy penalty.",
+      "image": "screenshots/citation-modal.png"
+    },
+    {
+      "name": "popup-populated",
+      "caption": "Toolbar popup after the full run: combined water (Scope 1+2), energy, politeness-tax count, and the contextual Scale Reality Check tier.",
+      "image": "screenshots/popup-populated.png"
+    },
+    {
+      "name": "popup-annual-pace",
+      "caption": "Personal annual projection appears at 15 prompts and uses three active days of empirical water and energy totals.",
+      "image": "screenshots/popup-annual-pace.png"
+    },
+    {
+      "name": "popup-zero-state",
+      "caption": "Toolbar popup with storage cleared: zeroed stat grid, the \"no receipts yet\" footer, and the first-tier scale-check message.",
+      "image": "screenshots/popup-zero-state.png"
+    }
+  ],
+  "telemetry": [
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"Explain earlier Gemini history page 1\" => sanitized: \"Explain earlier Gemini history page 1\"",
+    "[MonkeyTax] Raw prompt: \"Explain earlier Gemini history page 1\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"Explain earlier Gemini history page 2\" => sanitized: \"Explain earlier Gemini history page 2\"",
+    "[MonkeyTax] Raw prompt: \"Explain earlier Gemini history page 2\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 4 turns | 18.7 ml | 2.12 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.3 ml | 2.63 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"Explain earlier Gemini history page 3\" => sanitized: \"Explain earlier Gemini history page 3\"",
+    "[MonkeyTax] Raw prompt: \"Explain earlier Gemini history page 3\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.3 ml | 2.63 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.3 ml | 2.63 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"You said Write a TypeScript debounce function\\nWrite a TypeScript debounce function\\n​ copy edit\" => sanitized: \"Write a TypeScript debounce function\"",
+    "[MonkeyTax] Raw prompt: \"Write a TypeScript debounce function\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.6 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.5 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.6 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 4 turns | 18.8 ml | 2.12 Wh",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 3\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 2\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 1\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.1 ml | 1.02 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 22.8 ml | 2.55 Wh",
+    "[MonkeyTax] Raw prompt: \"Explain virtual history pair 0\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain virtual history pair 2\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.09 Wh",
+    "[MonkeyTax] Thread rollup: 4 turns | 18.8 ml | 2.12 Wh",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 3\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 2\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain delayed history batch 1\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.64 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 1 turns | 4.6 ml | 0.51 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.1 ml | 1.02 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 22.8 ml | 2.55 Wh",
+    "[MonkeyTax] Raw prompt: \"Explain virtual history pair 0\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Raw prompt: \"Explain virtual history pair 2\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 7 turns | 31.9 ml | 3.57 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.5 ml | 1.65 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.6 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.62 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.6 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 2 turns | 9.5 ml | 1.08 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.2 ml | 1.61 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.4 ml | 1.65 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.6 ml | 1.67 Wh",
+    "[MonkeyTax] Thread rollup: 3 turns | 14.1 ml | 1.60 Wh",
+    "[MonkeyTax] Thread rollup: 4 turns | 18.8 ml | 2.12 Wh",
+    "[MonkeyTax] Thread rollup: 5 turns | 23.4 ml | 2.65 Wh",
+    "[MonkeyTax] Thread rollup: 6 turns | 28.5 ml | 3.23 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"You said Thanks\\nThanks\\n​ copy edit\" => sanitized: \"Thanks\"",
+    "[MonkeyTax] Raw prompt: \"Thanks\" | Tier: POLITE | isRoast: true | reasoning: false",
+    "[MonkeyTax] Raw user prompt element text: \"You said 45 * 12\\n45 * 12\\n​ copy edit\" => sanitized: \"45 * 12\"",
+    "[MonkeyTax] Raw prompt: \"45 * 12\" | Tier: SIMPLE_MATH | isRoast: true | reasoning: false",
+    "[MonkeyTax] Raw user prompt element text: \"You said capital of france\\ncapital of france\\n​ copy edit\" => sanitized: \"capital of france\"",
+    "[MonkeyTax] Raw prompt: \"capital of france\" | Tier: QUICK_SEARCH | isRoast: true | reasoning: false",
+    "[MonkeyTax] Thread rollup: 6 turns | 28.5 ml | 3.23 Wh",
+    "[MonkeyTax] Thread rollup: 6 turns | 28.5 ml | 3.23 Wh",
+    "[MonkeyTax] Thread rollup: 6 turns | 28.5 ml | 3.23 Wh",
+    "[MonkeyTax] Raw user prompt element text: \"You said Write a TypeScript debounce function\\nWrite a TypeScript debounce function\\n​ copy edit\" => sanitized: \"Write a TypeScript debounce function\"",
+    "[MonkeyTax] Raw prompt: \"Write a TypeScript debounce function\" | Tier: INFORMATIVE | isRoast: false | reasoning: false",
+    "[MonkeyTax] Thread rollup: 6 turns | 28.5 ml | 3.23 Wh"
+  ]
+}

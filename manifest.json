@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "MonkeyTax: AI Footprint & Reality Check",
+  "short_name": "MonkeyTax",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "description": "Stop using supercomputers like a monkey on a typewriter. Client-side, privacy-first water and energy receipts for ChatGPT, Claude, and Gemini.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "*://chatgpt.com/*",
+    "*://gemini.google.com/*",
+    "*://claude.ai/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chatgpt.com/*",
+        "*://gemini.google.com/*",
+        "*://claude.ai/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "MonkeyTax — Session Receipts"
+  }
+}
