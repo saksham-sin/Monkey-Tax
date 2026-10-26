@@ -9,7 +9,7 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-  "description": "Stop using supercomputers like a monkey on a typewriter. Client-side, privacy-first water and energy receipts for ChatGPT, Claude, and Gemini.",
+  "description": "Stop using supercomputers like a monkey on a typewriter. Local water and energy receipts for ChatGPT, Claude, and Gemini.",
   "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": [
     "*://chatgpt.com/*",

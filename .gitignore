@@ -24,3 +24,5 @@ Thumbs.db
 Desktop.ini
 .e2e-live.log
 .debug-fail-*.png
+/monkeytax*.zip
+/linkedin-launch/
